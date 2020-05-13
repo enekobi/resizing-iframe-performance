@@ -1,24 +1,57 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useResize } from './ResizeContext';
+import { usePosition } from './PositionContext';
 
 const StyledIframe = styled.iframe`
 border: solid 1px;
 border-radius: 5px;
-height: 100px;
-width: 80%;
-padding: 1px;
-transition-duration: 500ms;
-align-self: end;
 
-&.big{
-  height: 75%;
-}
+padding: 1px;
+transition: 500ms;
+
+&.down, &.up   {
+  height: 100px;
+  width: 80%;
+
+  :not(.up){
+    align-self: end;
+  }
+
+  :not(.down){
+    align-self: start;
+  }
+
+  &.big {
+    height: 75%;
+    }
+  }
+
+  &.right, &.left {
+    align-self: center;
+    width: 100px;
+    height: 80%;
+  
+    
+  :not(.right){
+    justify-self: start;
+  }
+
+  :not(.left){
+    justify-self: end;
+  }
+
+    &.big{
+      width: 75%;
+    }
+  }
+
 `;
 
 export const Iframe = (props) => {
   const ifrRef = useRef(null);
   const [resized] = useResize();
+  const [position] = usePosition();
 
   useEffect(() => {
     if (!props.src) {
@@ -30,6 +63,5 @@ export const Iframe = (props) => {
     }
   }, [ifrRef, props.src]);
 
-
-  return <StyledIframe className={resized ? 'big' : ''} ref={ifrRef} {...props} />;
+  return <StyledIframe className={`${position} ${resized ? 'big' : ''}`} ref={ifrRef}  {...props} />;
 }

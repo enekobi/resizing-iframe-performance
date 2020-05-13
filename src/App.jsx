@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Positions } from './Positions';
 import { Resizer } from './Resizer';
-import { ResizeProvider } from './ResizeContext';
 import { Iframe } from './Iframe';
+import { ResizeProvider } from './ResizeContext';
+import { PositionProvider } from './PositionContext';
 
 const AppWrapper = styled.div`
   position: fixed;
@@ -27,6 +28,7 @@ const AppWrapper = styled.div`
     grid-area: left;
     border-right: solid 1px;
     display: grid;
+    grid-template-rows: 50px 1fr;
     justify-items: center;
   }
 
@@ -34,6 +36,7 @@ const AppWrapper = styled.div`
     grid-area: right;
     border-left: solid 1px;
     display: grid;
+    grid-template-rows: 50px 1fr;
     justify-items: center;
   }
 `;
@@ -43,20 +46,22 @@ const AppWrapper = styled.div`
 export const App = (props) => {
   return (
     <AppWrapper>
-      <ResizeProvider>
-        <div className="content__header">
-          <Positions />
-          <Resizer />
-        </div>
-        <div className="content__left">
-          <h4>3rd party</h4>
-          <Iframe id='3rd-party' src='https://simple-msg.netlify.app/aupa.html' />
-        </div>
-        <div className="content__right">
-          <h4>1st party</h4>
-          <Iframe id='1st-party' />
-        </div>
-      </ResizeProvider>
+      <PositionProvider>
+        <ResizeProvider>
+          <div className="content__header">
+            <Positions />
+            <Resizer />
+          </div>
+          <div className="content__left">
+            <h4>3rd party</h4>
+            <Iframe id='3rd-party' src='https://simple-msg.netlify.app/aupa.html' />
+          </div>
+          <div className="content__right">
+            <h4>1st party</h4>
+            <Iframe id='1st-party' />
+          </div>
+        </ResizeProvider>
+      </PositionProvider>
     </AppWrapper>
   );
 };

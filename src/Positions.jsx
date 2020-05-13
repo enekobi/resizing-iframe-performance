@@ -7,6 +7,7 @@ import {
   faArrowRight,
   faArrowDown
 } from '@fortawesome/free-solid-svg-icons';
+import { usePosition, positions } from './PositionContext';
 
 const PositionWrapper = styled.div`
   display: grid;
@@ -33,6 +34,7 @@ const PositionWrapper = styled.div`
   }
 
   svg {
+    cursor: pointer;
     &:hover {
       color: #89a;
     }
@@ -42,9 +44,15 @@ const PositionWrapper = styled.div`
   }
 `;
 
-export const Positions = (props) => (<PositionWrapper>
-  <FontAwesomeIcon icon={faArrowUp} className="up" />
-  <FontAwesomeIcon icon={faArrowDown} className="down" />
-  <FontAwesomeIcon icon={faArrowLeft} className="left" />
-  <FontAwesomeIcon icon={faArrowRight} className="right" />
-</PositionWrapper>);
+export const Positions = (props) => {
+
+  /* eslint-disable no-unused-vars */
+  const [position, setPosition] = usePosition();
+
+  return (<PositionWrapper>
+    <FontAwesomeIcon icon={faArrowUp} className="up" onClick={() => setPosition(positions.UP)} />
+    <FontAwesomeIcon icon={faArrowDown} className="down" onClick={() => setPosition(positions.DOWN)} />
+    <FontAwesomeIcon icon={faArrowLeft} className="left" onClick={() => setPosition(positions.LEFT)} />
+    <FontAwesomeIcon icon={faArrowRight} className="right" onClick={() => setPosition(positions.RIGHT)} />
+  </PositionWrapper>);
+}
