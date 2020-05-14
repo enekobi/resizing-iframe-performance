@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Positions } from './Positions';
-import { Resizer } from './Resizer';
-import { Iframe } from './Iframe';
-import { ResizeProvider } from './ResizeContext';
-import { PositionProvider } from './PositionContext';
+import { Positions } from './components/Positions';
+import { Resizer } from './components/Resizer';
+import { Iframe } from './components/Iframe';
+import { ResizeProvider } from './contexts/ResizeContext';
+import { PositionProvider } from './contexts/PositionContext';
 
 const AppWrapper = styled.div`
   position: fixed;

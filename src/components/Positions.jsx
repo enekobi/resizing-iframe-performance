@@ -7,7 +7,7 @@ import {
   faArrowRight,
   faArrowDown
 } from '@fortawesome/free-solid-svg-icons';
-import { usePosition, positions } from './PositionContext';
+import { usePosition, positions } from '../contexts/PositionContext';
 
 const PositionWrapper = styled.div`
   display: grid;

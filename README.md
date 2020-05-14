@@ -17,7 +17,7 @@ As we use iframe's to inject our apps into another sites. This project is aimed 
 
 For this project, the main performance behaviour we wanted to test is how the iframe's content adapts to the iframe's resizing. And as we can see there is a clear difference, between the both, 3rd and 1st party. You can resize them yourself and check it on your own by clicking the button. 
 
-![resizing]('public/resizing.gif')
+![resizing](public/resizing.gif)
 
 This "flickering" happens on the bottom and right side when you change the height or the width, respectively. 
 

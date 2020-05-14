@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useResize } from './ResizeContext';
-import { usePosition } from './PositionContext';
+import { useResize } from '../contexts/ResizeContext';
+import { usePosition } from '../contexts/PositionContext';
 
 const StyledIframe = styled.iframe`
 border: solid 1px;

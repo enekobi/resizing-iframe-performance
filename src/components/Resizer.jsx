@@ -1,7 +1,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { useResize } from './ResizeContext';
+import { useResize } from '../contexts/ResizeContext';
 const ResizerWrapper = styled.div`
 background: #29a;
 border: solid 2px;
