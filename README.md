@@ -1,5 +1,7 @@
 # Resizing Iframe Performance
 
+## [LIVE DEMO](https://gfbgw.sse.codesandbox.io/)
+
 As we use iframe's to inject our apps into another sites. This project is aimed to compare 3rd and 1st party `<iframe>` performance. 
 
  - The **3rd party** `<iframe>` is the one started in a more traditional way, setting up its *src* attribute.
@@ -19,7 +21,7 @@ For this project, the main performance behaviour we wanted to test is how the if
 
 ![resizing](public/resizing.gif)
 
-This "flickering" happens on the bottom and right side when you change the height or the width, respectively. 
+This "flickering" happens on the **bottom and right side** when you change the height or the width, respectively. 
 
 ## Watch out for LocalStorage + Cookies
 
